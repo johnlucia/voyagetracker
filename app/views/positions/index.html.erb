@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Positions for <%= @boat.name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @positions.each do |position| %>
+      <tr>
+        <td><%= position.created_at %></td>
+        <td><%= position.latitude %></td>
+        <td><%= position.longitude %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
