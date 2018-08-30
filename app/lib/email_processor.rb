@@ -5,7 +5,10 @@ class EmailProcessor
 
   def process
     boat = Boat.find_by_tracking_email(@email.from[:email])
-
+    puts "/n/n/n/n"
+    puts @email.from[:email]
+    puts "/n/n/n/n"
+    puts boat.inspect
     puts "/n/n/n/n #{@email.body} /n/n/n/n"
 
     boat.positions.create(
