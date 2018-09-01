@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @positions.each do |position| %>
+    <% @positions[0..100].each do |position| %>
       <tr>
         <td><%= position.created_at %></td>
         <td><%= position.latitude %></td>

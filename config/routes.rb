@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   resources :boats do
     resources :positions
+    resources :status
   end
 
   root to: "boats#index"
