@@ -1,6 +1,8 @@
 class PositionUpdater
   def initialize(boat, text)
     @boat = boat
+    @text = text
+
     get_position_from_text
   end
 
