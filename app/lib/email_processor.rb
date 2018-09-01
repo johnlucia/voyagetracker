@@ -7,10 +7,10 @@ class EmailProcessor
     address = @email.from[:email]
     text = @email.body
 
-    boat = Boat.find_by_tracking_email(@email.from[:email])
+    boat = Boat.find_by_tracking_email(address)
 
     if boat
-      PositionUpdater.new(address, text).update
+      PositionUpdater.new(boat, text).update
     else
       # configure new boat
     end
