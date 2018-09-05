@@ -1,5 +1,8 @@
 class BoatsController < ApplicationController
-  http_basic_authenticate_with name: ENV['BASIC_AUTH_USER'], password: ENV['BASIC_AUTH_PASSWORD']
+  http_basic_authenticate_with name: ENV['BASIC_AUTH_USER'],
+                               password: ENV['BASIC_AUTH_PASSWORD'],
+                               except: :show
+
   before_action :set_boat, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -7,6 +10,7 @@ class BoatsController < ApplicationController
   end
 
   def show
+    @positions = @boat.positions.order(created_at: :desc).limit(10)
   end
 
   def new
