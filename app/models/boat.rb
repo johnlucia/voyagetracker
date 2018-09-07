@@ -1,5 +1,6 @@
 class Boat < ApplicationRecord
   has_many :positions
+  belongs_to :user, required: false
 
   def last_two_reports
     positions.order(created_at: :desc).limit(2)
@@ -47,5 +48,9 @@ class Boat < ApplicationRecord
 
   def longitude
     current_report.longitude
+  end
+
+  def tracking_page
+    "https://voyagetracker.herokuapp.com/boats/#{id}"
   end
 end

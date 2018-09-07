@@ -15,8 +15,11 @@ gem 'rack-cors', require: 'rack/cors'
 
 gem 'griddler'
 gem 'griddler-mailgun'
+gem 'rest-client'
 
 gem 'geocoder'
+
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

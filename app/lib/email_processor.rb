@@ -12,7 +12,7 @@ class EmailProcessor
     if boat
       PositionUpdater.new(boat, text).update
     else
-      # configure new boat
+      AccountCreator.new(address, text)
     end
   end
 end
