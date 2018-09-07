@@ -18,13 +18,14 @@
 
   <div class="field">
     <%= form.label :tracking_email %>
-    <%= form.text_field :tracking_email %>
+    <%= form.text_field :tracking_email, disabled: !current_user.admin %>
   </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
+  <% if current_user.admin %>
+    <div class="field">
+      <%= form.label :user_id %>
+      <%= form.number_field :user_id %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

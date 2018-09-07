@@ -4,6 +4,7 @@ class BoatsController < ApplicationController
   #                              except: :show
 
   before_action :set_boat, only: [:show, :edit, :update, :destroy]
+  before_action :boat_owner, only: [:edit, :update]
 
   def index
     @boats = Boat.all
@@ -61,5 +62,12 @@ class BoatsController < ApplicationController
 
     def boat_params
       params.require(:boat).permit(:name, :tracking_email, :user_id)
+    end
+
+    def boat_owner
+     unless current_user.admin || @boat.user_id == current_user.id
+      flash[:notice] = 'Access Denied. Please Log In'
+      redirect_to root_path
+     end
     end
 end
