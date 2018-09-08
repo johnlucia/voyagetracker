@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :admin_user_check
+
+  def admin_user_check
+    @admin_user = current_user&.admin
+  end
 
   protected
 
