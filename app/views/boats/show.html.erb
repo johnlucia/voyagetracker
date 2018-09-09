@@ -1,29 +1,72 @@
-<h1><%= @boat.name %> is <%= @boat.status %></h1>
-<p>Last Update At: <%= @boat.last_update %></p>
-<p>Speed: <%= @boat.speed_in_knots %> knots</p>
-<p>Heading: <%= @boat.heading %> degrees</p>
-<p>Latitude: <%= @boat.latitude %></p>
-<p>Longitude: <%= @boat.longitude %></p>
+<section id="get-started" class="padd-section text-center wow fadeInUp">
+  <div class="container">
+    <div class="section-title text-center">
 
-<h2>Recent Updates</h2>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th></th>
-    </tr>
-  </thead>
+      <h2>Position Details For <%= @boat.display_name %></h2>
+      <!-- <p class="separator">Integer cursus bibendum augue ac cursus .</p> -->
 
-  <tbody>
-    <% @positions.each do |position| %>
-      <tr>
-        <td><%= position.how_long_ago %> ago:</td>
-        <td><%= position.latitude %></td>
-        <td><%= position.longitude %></td>
-        <td><%= position.created_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 xcol-lg-4">
+        <div class="feature-block">
+
+          <h4><%= @boat.display_name %> is <%= @boat.status %></h4>
+          <table class="table">
+            <tr>
+              <td>Time:</td>
+              <td><%= @boat.last_update %></td>
+            </tr>
+            <tr>
+              <td>Speed:</td>
+              <td><%= @boat.speed_in_knots %> knots</td>
+            </tr>
+            <tr>
+              <td>Heading:</td>
+              <td><%= @boat.heading %> Deg.</td>
+            </tr>
+            <tr>
+              <td>Latitude:</td>
+              <td><%= @boat.latitude %></td>
+            </tr>
+            <tr>
+              <td>Longitude:</td>
+              <td><%= @boat.longitude %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-md-6 xcol-lg-4">
+        <div class="feature-block">
+
+          <h4>Recent Updates</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @positions.each do |position| %>
+                <tr>
+                  <td><%= position.how_long_ago %> ago:</td>
+                  <td><%= position.latitude %></td>
+                  <td><%= position.longitude %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+          <a href="#">read more</a>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

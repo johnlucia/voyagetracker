@@ -1,10 +1,10 @@
 function initRouteMap() {
 
   var route1
-
+  var coordinatesEndpoint = '/boats/' + window.mappedBoat + '/positions.json';
   var extractCoordinates = function(item) { return item.p; }
 
-  $.getJSON('/boats/1/positions.json', function(data) {
+  $.getJSON(coordinatesEndpoint, function(data) {
     route1 = data.route.map(extractCoordinates); 
 
     var map = new google.maps.Map(document.getElementById('route-map'), {

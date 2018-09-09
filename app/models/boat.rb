@@ -2,6 +2,10 @@ class Boat < ApplicationRecord
   has_many :positions
   belongs_to :user, required: false
 
+  def display_name
+    name.blank? ? "This Boat" : name
+  end
+
   def last_two_reports
     positions.order(created_at: :desc).limit(2)
   end

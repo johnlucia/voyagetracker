@@ -11,7 +11,7 @@ class BoatsController < ApplicationController
   end
 
   def show
-    @positions = @boat.positions.order(created_at: :desc).limit(10)
+    @positions = @boat.positions.order(created_at: :desc).limit(5)
   end
 
   def new
