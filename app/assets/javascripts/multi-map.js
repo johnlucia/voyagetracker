@@ -10,9 +10,11 @@ function initMultiMap() {
     mapTypeId: 'terrain'
   });
 
-
-  var boatIDs = [1,3];
+  var boatIDs = [1,2,3];
   var arrayLength = boatIDs.length;
+
+  var lineColors = ['#d83413', '#14a017', '#d81ac8', '#e2e539', '#7a4f27'];
+
   for (var i = 0; i < arrayLength; i++) {
     var coordinatesEndpoint = '/boats/' + boatIDs[i] + '/positions.json';
 
@@ -22,7 +24,7 @@ function initMultiMap() {
       var chartPlot = new google.maps.Polyline({
         path: route1,
         geodesic: true,
-        strokeColor: '#024ec9',
+        strokeColor: lineColors[i],
         strokeOpacity: 1.0,
         strokeWeight: 1
       });
