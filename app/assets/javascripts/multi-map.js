@@ -30,7 +30,7 @@ function initMultiMap() {
         },
         position: route1[0],
         map: map,
-        title: 'Latitude: ' + route1[0].lat + ', Longitude: ' + route1[0].lng + ' ...Click for more info'
+        title: 'Latitude: ' + route1[0].lat + ', Longitude: ' + route1[0].lng
       });
 
       chartPlot.setMap(map);
