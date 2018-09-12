@@ -1,4 +1,7 @@
 function initRouteMap() {
+  if(!window.mappedBoat){
+    return initMultiMap();
+  }
 
   var route1
   var coordinatesEndpoint = '/boats/' + window.mappedBoat + '/positions.json';

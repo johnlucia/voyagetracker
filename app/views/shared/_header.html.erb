@@ -10,7 +10,13 @@
     <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="/">Home</a></li>
-        <li><a href="#">Tracked Boats</a></li>
+        <li class="menu-has-children"><a>Tracked Boats</a>
+            <ul>
+              <% (@boats || Boat.all).each do |boat| %>
+                <li><%= link_to boat.navigation_display_name, boat_path(boat) %></li>
+              <% end %>
+            </ul>
+          </li>
         <% if user_signed_in? %>
         <li><%= link_to('My Tracking Page', boat_path(current_user.boats.first)) %></li>
         <li><%= link_to('Customize My Page', edit_boat_path(current_user.boats.first)) %></li>

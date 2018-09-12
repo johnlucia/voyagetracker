@@ -1,0 +1,44 @@
+<section id="get-started" class="padd-section text-center wow fadeInUp">
+
+  <div class="container">
+    <div class="section-title text-center">
+
+      <h2>Welcome To PassageTracker</h2>
+      <p class="separator">Map and share routes with friends, family, and other cruisers.</p>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-block">
+          <h4>Join PassageTracker</h4>
+
+          <p>PassageTracker is a free service. Email us position updates from your IridiumGo or other device and your personal tracking page is updated instantly. </p>
+          <a href="#">Sign Up</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-block">
+          <h4>user friendly interface</h4>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-block">
+          <h4>Find a Boat</h4>
+          
+          <% @boats.each do |boat| %>
+            <p><%= link_to boat.navigation_display_name, boat_path(boat) %></p>
+          <% end %>
+
+          <a href="#">read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

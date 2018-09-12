@@ -6,6 +6,10 @@ class Boat < ApplicationRecord
     name.blank? ? "This Boat" : name
   end
 
+  def navigation_display_name
+    name.blank? ? "Anonymous Boat #{id}" : name
+  end
+
   def last_two_reports
     positions.order(created_at: :desc).limit(2)
   end
@@ -55,6 +59,6 @@ class Boat < ApplicationRecord
   end
 
   def tracking_page
-    "https://voyagetracker.herokuapp.com/boats/#{id}"
+    "https://www.passagetracker.com/boats/#{id}"
   end
 end

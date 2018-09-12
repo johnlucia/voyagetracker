@@ -33,8 +33,8 @@ class AccountCreator
   def welcome_email_text
     "Hello,\n" +
     "Thank you for using PassageTracker!\n" +
-    "Your tracking page can be found at #{@boat.tracking_page}" +
-    "To customize your tracking page, please create a free account at https://passagetracker.herokuapp.com/users/sign_up \n" +
+    "Your tracking page can be found at #{@boat.tracking_page} .\n" +
+    "If you would like to customize your tracking page with your boat name, please create a free account at https://passagetracker.herokuapp.com/users/sign_up \n" +
     "Your new account key is: #{@boat.user_key}"
   end
 end

@@ -5,7 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <script>window.mappedBoat = <%= @boat&.id || 1 %>;</script>
+    <% if @boat %>
+    <script>window.mappedBoat = <%= @boat.id %>;</script>
+    <% end %>
 
     
 
