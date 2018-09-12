@@ -1,59 +1,44 @@
 function initMultiMap() {
-
-  var route1;
   
   var extractCoordinates = function(item) { return item.p; }
 
   var map = new google.maps.Map(document.getElementById('route-map'), {
     zoom: 4,
-    center: {lat: 38.6335682, lng: -122.7617397},
+    center: {lat: 32, lng: -122},
     mapTypeId: 'terrain'
   });
 
-  var boatIDs = [1,2,3];
-  var arrayLength = boatIDs.length;
-
-  var lineColors = ['#d83413', '#14a017', '#d81ac8', '#e2e539', '#7a4f27'];
-
-  for (var i = 0; i < arrayLength; i++) {
-    var coordinatesEndpoint = '/boats/' + boatIDs[i] + '/positions.json';
+  var drawRoute = function(boatID, color) {
+    var coordinatesEndpoint = '/boats/' + boatID + '/positions.json';
 
     $.getJSON(coordinatesEndpoint, function(data) {
-      route1 = data.route.map(extractCoordinates); 
+      var route1 = data.route.map(extractCoordinates); 
 
       var chartPlot = new google.maps.Polyline({
         path: route1,
         geodesic: true,
-        strokeColor: lineColors[i],
+        strokeColor: color,
         strokeOpacity: 1.0,
         strokeWeight: 1
       });
 
       var lastPositionUpdate = new google.maps.Marker({
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 6,
+          strokeColor: color
+        },
         position: route1[0],
         map: map,
         title: 'Latitude: ' + route1[0].lat + ', Longitude: ' + route1[0].lng + ' ...Click for more info'
       });
 
-      var date = new Date(data.route[0].t * 1000);
-      var hours = date.getHours();
-      var minutes = "0" + date.getMinutes();
-      var dateTimeString = date + ' at ' + hours + ':' + minutes.substr(-2);
-
-      var contentString = '<p><strong>Position</strong></p>' +
-                          '<p>Latitude: ' + route1[0].lat + ', Longitude: ' + route1[0].lng + '</p>' +
-                          '<p><strong>Last Report</strong></p>' +
-                          '<p>' + dateTimeString + '</p>';
-
-      var infowindow = new google.maps.InfoWindow({
-        content: contentString
-      });
-
-      lastPositionUpdate.addListener('click', function() {
-        infowindow.open(map, lastPositionUpdate);
-      });
-
       chartPlot.setMap(map);
     });
   }
+
+  drawRoute(1, '#d83413');
+  drawRoute(2, '#14a017');
+  drawRoute(3, '#7a4f27');
+
 }
