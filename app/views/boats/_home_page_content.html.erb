@@ -4,39 +4,94 @@
     <div class="section-title text-center">
 
       <h2>Welcome To PassageTracker</h2>
-      <p class="separator">Map and share routes with friends, family, and other cruisers.</p>
 
     </div>
   </div>
 
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-4">
         <div class="feature-block">
-          <h4>Join PassageTracker</h4>
-
-          <p>PassageTracker is a free service. Email us position updates from your IridiumGo or other device and your personal tracking page is updated instantly. </p>
-          <a href="#">Sign Up</a>
+          <h4>Join Passage Tracker</h4>
+          <p>Email us position updates from your IridiumGo or other device and your personal tracking page is updated instantly. </p>
+          <a href="#how-to-join">Sign Up</a>
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-block">
-          <h4>user friendly interface</h4>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-          <a href="#">Learn More</a>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-4">
         <div class="feature-block">
           <h4>Find a Boat</h4>
-          
+          <p>Here are the boats that are using PassageTracker:</p>
           <% @boats.each do |boat| %>
             <p><%= link_to boat.navigation_display_name, boat_path(boat) %></p>
           <% end %>
         </div>
       </div>
+
+      <div class="col-md-4">
+        <div class="feature-block">
+          <h4>About Passage Tracker</h4>
+          <p>PassageTracker is a free service. It lets you map and share your position and route with friends, family, and other cruisers</p>
+          <a href="#about-us">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-to-join" class="about-us padd-section wow fadeInUp">
+  <div class="container">
+    <div class="section-title text-center">
+
+      <h2>How To Start Using PassageTracker</h2>
+
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="about-content">
+          <h2>How To Join Using IridiumGo</h2>
+          <p>It just takes a minute to join. All you need to do is set PassageTracker to be your "Tracking Recipient". Right after we receive your first position update, you'll get an SMS with a link to your new tracking page.
+          </p>
+
+          <ol>
+            <li>In your IridiumGo App, go to Settings > Track. Make sure your "Tracking Recipient" is set to <strong>update@passagetracker.com</strong></li>
+            <li>Make sure tracking is on. Any tracking interval will work, but we suggest using somewhere between 1 hour and 1 day.</li>
+            <li>Soon after you send your first update, you will get a confirmation message from us. It will contain a link to your personal tracking page. There's nothing more you need to do!</li>
+            <li>If you would like to make it easier for friends and family to find you, you can add your boat name to your tracking page. Your confirmation message will contain an invitation to create a free PassageTracker account. After you create an account, you will be able to customize your tracking page.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="col-md-5 offset-md-2">
+        <div class="about-content">
+
+          <h2>How To Join With Other Message Services</h2>
+          <p>All you really need to start using PassageTracker is to have a way to email us updates with information about your current position.
+          </p>
+
+          <ol>
+            <li>You need to email position updates to <strong>update@passagetracker.com</strong>. Tell us where you are in the body of your email by including a line that looks like this:
+              <br><strong>Lat: 12.3456789, Lon: -123.4567890</strong><br>
+            Make sure you use the decimal format and not degrees, minutes, seconds.</li>
+            <li>After we receive your first update, we will send you an email with a link to your new tracking page.</li>
+            <li>Continue to send us updates at any interval you like. Just make sure you keep sending your updates from the same email address.</li>
+          </ol>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="about-us" class="about-us padd-section wow fadeInUp">
+  <div class="container">
+    <div class="section-title text-center">
+
+      <h2>About PassageTracker</h2>
+
     </div>
   </div>
 </section>
